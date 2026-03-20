@@ -2,7 +2,7 @@
 
 A lightweight macOS menu bar app that shows your [Claude.ai](https://claude.ai) plan usage in real time — current session and weekly limits — without opening a browser.
 
-![Menu bar showing 35% · 71%](https://img.shields.io/badge/menu%20bar-35%25%20%C2%B7%2071%25-blue)
+![Claude Usage Systray](claude-usage-systray/Resources/Assets.xcassets/Image.imageset/Image.png)
 
 ## What it shows
 
