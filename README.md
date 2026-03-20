@@ -21,14 +21,18 @@ Colors update based on your configured warning/critical thresholds.
 - macOS 13+
 - [Claude Code](https://claude.ai/code) installed and logged in (the app reads its OAuth token from your Keychain — no separate credentials needed)
 
-## Download
+## Install
 
-Get the latest binary from the [Releases page](https://github.com/adntgv/claude-usage-systray/releases).
+**Homebrew (recommended):**
 
-1. Download `ClaudeUsageSystray.zip` and unzip
-2. Move `ClaudeUsageSystray.app` to `/Applications`
-3. **Right-click → Open** (first launch only — app is unsigned, so macOS Gatekeeper will block a normal double-click)
-4. The app appears in your menu bar
+```bash
+brew tap adntgv/tap
+brew install --cask claude-usage-systray
+```
+
+**Manual:**
+
+Download the latest `ClaudeUsageSystray.zip` from the [Releases page](https://github.com/adntgv/claude-usage-systray/releases), unzip, and move `ClaudeUsageSystray.app` to `/Applications`. The app is notarized — macOS will open it normally on first launch.
 
 ## Build from source
 
