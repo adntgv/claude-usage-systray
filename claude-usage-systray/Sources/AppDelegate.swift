@@ -1,6 +1,7 @@
 import AppKit
 import SwiftUI
 import UserNotifications
+import Combine
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem!
@@ -11,11 +12,23 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var lastWarningNotified: Int = 0
     private var lastCriticalNotified: Int = 0
 
+    // Keep Combine subscriptions alive
+    private var cancellables = Set<AnyCancellable>()
+
     func applicationDidFinishLaunching(_ notification: Notification) {
         setupStatusItem()
         setupPopover()
         setupNotifications()
         startUsagePolling()
+
+        // Observe usage changes to keep the menu bar numbers up to date
+        usageService.$currentUsage
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                self?.updateStatusItemAppearance()
+                self?.checkForNotifications()
+            }
+            .store(in: &cancellables)
         
         NotificationCenter.default.addObserver(
             self,
