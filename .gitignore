@@ -15,3 +15,7 @@ build/
 
 # Claude Code local settings
 .claude/settings.local.json
+
+# Release artifacts
+*.zip
+*.p12
